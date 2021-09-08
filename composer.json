@@ -12,7 +12,8 @@
     }
   ],
   "require": {
-    "dompdf/dompdf": "~0.8.0"
+    "dompdf/dompdf": "~0.8.4 || ^1.0",
+    "php": "^7.1 || ^8.0"
   },
   "suggest": {
     "mikehaertl/phpwkhtmltopdf": "PhpWkhtmlToPdf provides the PHP library to use Wkhtmltopdf"

@@ -85,8 +85,8 @@ class NodePreviewTest extends KernelTestBase {
    *
    * @see set_error_handler()
    */
-  public function errorHandler($errno, $errstr, $errfile, $errline, $errcontext) {
-    $this->errors[] = compact('errno', 'errstr', 'errfile', 'errline', 'errcontext');
+  public function errorHandler($errno, $errstr, $errfile, $errline) {
+    $this->errors[] = compact('errno', 'errstr', 'errfile', 'errline');
   }
 
 }

@@ -1,0 +1,60 @@
+From 2796dc9ed9503ea1706b6bf2819ed4600ce2ef35 Mon Sep 17 00:00:00 2001
+From: devad <2268520@devad.no-reply.drupal.org>
+Date: Sun, 8 Aug 2021 19:49:13 +0800
+Subject: [PATCH 1/2] Patch #2 on 8.x-2.x
+
+Patch URL: https://www.drupal.org/files/issues/2021-08-08/3227262-02.patch
+Comment URL: https://www.drupal.org/project/entity_print/issues/3227262#comment-14184964
+Issue URL: https://www.drupal.org/project/entity_print/issues/3227262
+Patch uploaded by devad
+Commit built with dogit.dev
+---
+ tests/src/Kernel/NodePreviewTest.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tests/src/Kernel/NodePreviewTest.php b/tests/src/Kernel/NodePreviewTest.php
+index fa0e92b..083d926 100644
+--- a/tests/src/Kernel/NodePreviewTest.php
++++ b/tests/src/Kernel/NodePreviewTest.php
+@@ -85,8 +85,8 @@ class NodePreviewTest extends KernelTestBase {
+    *
+    * @see set_error_handler()
+    */
+-  public function errorHandler($errno, $errstr, $errfile, $errline, $errcontext) {
+-    $this->errors[] = compact('errno', 'errstr', 'errfile', 'errline', 'errcontext');
++  public function errorHandler($errno, $errstr, $errfile, $errline) {
++    $this->errors[] = compact('errno', 'errstr', 'errfile', 'errline');
+   }
+ 
+ }
+-- 
+GitLab
+
+
+From 21d0da0a0bd5c64d41868a504b04a6b3cab84fed Mon Sep 17 00:00:00 2001
+From: dpi <pro@danielph.in>
+Date: Mon, 9 Aug 2021 12:57:21 +0800
+Subject: [PATCH 2/2] Explicitly specify PHP compatibility and allow dompdf 0.8
+ and 1.0
+
+---
+ composer.json | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/composer.json b/composer.json
+index dd1b781..6b08547 100644
+--- a/composer.json
++++ b/composer.json
+@@ -12,7 +12,8 @@
+     }
+   ],
+   "require": {
+-    "dompdf/dompdf": "~0.8.0"
++    "dompdf/dompdf": "~0.8.4 || ^1.0",
++    "php": "^7.1 || ^8.0"
+   },
+   "suggest": {
+     "mikehaertl/phpwkhtmltopdf": "PhpWkhtmlToPdf provides the PHP library to use Wkhtmltopdf"
+-- 
+GitLab
+
